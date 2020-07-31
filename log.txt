@@ -1,1 +1,9 @@
-testing that this information is copied over to log
+New test to determine expected outcome.
+Second line for giggles.
+
+
+
+
+
+
+What happens to white space?
