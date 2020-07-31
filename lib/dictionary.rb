@@ -32,7 +32,7 @@ class Dictionary
   end
 
   def braille_to_letters
-    convert_to_braille.invert
+    letters_to_braille.invert
   end
 
 end
