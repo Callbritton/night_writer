@@ -1,9 +1,0 @@
-New test to determine expected outcome.
-Second line for giggles.
-
-
-
-
-
-
-What happens to white space?
