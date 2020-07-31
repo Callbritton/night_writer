@@ -20,4 +20,9 @@ class ClassTest < Minitest::Test
     assert_equal "a", dictionary.convert_to_english[braille]
   end
 
+  def test_it_can_convert_another_letter
+    dictionary = Dictionary.new
+    assert_equal [".0", "0.", "0."], dictionary.convert_to_braille["s"]
+  end
+
 end
