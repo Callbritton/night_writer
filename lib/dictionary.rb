@@ -1,6 +1,6 @@
 class Dictionary
 
-  def convert_to_braille
+  def letters_to_braille
     {
       "a" => ["0.", "..", ".."],
       "b" => ["0.", "0.", ".."],
@@ -31,7 +31,7 @@ class Dictionary
     }
   end
 
-  def convert_to_english
+  def braille_to_letters
     convert_to_braille.invert
   end
 
