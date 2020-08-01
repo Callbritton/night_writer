@@ -11,4 +11,13 @@ class ConverterTest < Minitest::Test
     assert_instance_of NightWriter, night_writer
   end
 
+  def test_it_can_write_braille_to_file
+    File.write("message.txt", "a")
+    night_writer = NightWriter.new("message.txt", "braille.txt")
+    night_writer.execute_conversion
+    expected = "0.\n..\n.."
+
+    assert_equal expected, File.read("braille.txt")
+  end
+
 end
