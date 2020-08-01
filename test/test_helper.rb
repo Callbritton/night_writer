@@ -3,4 +3,4 @@ SimpleCov.start
 require "minitest/autorun"
 require "minitest/pride"
 require "mocha/minitest"
-require "./lib/<file here>"
+require "./lib/dictionary"

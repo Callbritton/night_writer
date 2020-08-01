@@ -27,12 +27,12 @@ class Dictionary
       "w" => [".0", "00", ".0"],
       "x" => ["00", "..", "00"],
       "y" => ["00", ".0", "00"],
-      "z" => ["0.", ".0", "00"]
+      "z" => ["0.", ".0", "00"],
+      " " => ["..", "..", ".."]
     }
   end
 
   def braille_to_letters
-    convert_to_braille.invert
+    letters_to_braille.invert
   end
-
 end
