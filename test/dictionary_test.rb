@@ -2,7 +2,7 @@ require "minitest/autorun"
 require "minitest/pride"
 require "./test/test_helper"
 
-class ClassTest < Minitest::Test
+class DictionaryTest < Minitest::Test
 
   def test_it_exists
     dictionary = Dictionary.new
