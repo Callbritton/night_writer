@@ -1,5 +1,6 @@
-class Converter
+require './lib/dictionary'
+class Converter < Dictionary
 
 
 
-end 
+end
