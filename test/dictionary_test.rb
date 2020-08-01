@@ -2,7 +2,7 @@ require "minitest/autorun"
 require "minitest/pride"
 require "./test/test_helper"
 
-class ClassTest < Minitest::Test
+class DictionaryTest < Minitest::Test
 
   def test_it_exists
     dictionary = Dictionary.new
@@ -23,5 +23,10 @@ class ClassTest < Minitest::Test
   def test_it_can_convert_another_letter
     dictionary = Dictionary.new
     assert_equal [".0", "0.", "0."], dictionary.letters_to_braille["s"]
+  end
+
+  def test_it_can_convert_empty_space
+    dictionary = Dictionary.new
+    assert_equal ["..", "..", ".."], dictionary.letters_to_braille[" "]
   end
 end
