@@ -1,6 +1,6 @@
 require './lib/dictionary'
 class Converter < Dictionary
-
+  #convert array of letters into columns of braille:
   def convert_to_columns(info)
     # takes info (hello world) and splits it
     # into each character ("h", "e", "l", etc)
