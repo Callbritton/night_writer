@@ -1,9 +1,10 @@
-
+require_relative "converter"
 class NightWriter
 
-# input_file = ARGV[0]
-# output_file = ARGV[1]
-# contents = File.read(input_file)
+def initialize(input_file, output_file)
+  @input_file = input_file
+  @output_file = output_file
+end
 #
 # File.open(output_file, "w") do |f|
 #   f.write contents
@@ -17,3 +18,7 @@ class NightWriter
 # Working base file to wrap up Iteration 1. This now needs to be refactored into
 # functional class with tests, etc.
 end
+
+# input_file = ARGV[0]
+# output_file = ARGV[1]
+# contents = File.read(input_file)

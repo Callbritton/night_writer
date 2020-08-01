@@ -7,8 +7,8 @@ require "./test/test_helper"
 class ConverterTest < Minitest::Test
 
   def test_it_exists
-    night_writer = NightWriter.new
+    night_writer = NightWriter.new("message.txt", "braille.txt")
     assert_instance_of NightWriter, night_writer
   end
 
-end 
+end
