@@ -24,4 +24,9 @@ class DictionaryTest < Minitest::Test
     dictionary = Dictionary.new
     assert_equal [".0", "0.", "0."], dictionary.letters_to_braille["s"]
   end
+
+  def test_it_can_convert_empty_space
+    dictionary = Dictionary.new
+    assert_equal ["..", "..", ".."], dictionary.letters_to_braille[" "]
+  end
 end
