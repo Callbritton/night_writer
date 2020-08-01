@@ -17,9 +17,9 @@ class ClassTest < Minitest::Test
   end
 
   def test_it_can_convert_rows_into_columns
-    dictionary = Dictionary.new
+    converter = Converter.new
     expected = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0..."
-    assert_equal expected, dictionary.convert_to_columns("hello world")
+    assert_equal expected, converter.convert_to_columns("hello world")
   end
 
 end
