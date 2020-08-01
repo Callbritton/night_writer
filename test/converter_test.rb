@@ -1,5 +1,6 @@
 require "minitest/autorun"
 require "minitest/pride"
+require "./lib/converter"
 require "./lib/dictionary"
 require "./test/test_helper"
 
@@ -10,4 +11,4 @@ class ClassTest < Minitest::Test
     assert_instance_of Converter, converter
   end
 
-end 
+end
