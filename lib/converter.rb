@@ -16,4 +16,6 @@ class Converter < Dictionary
     "#{transposed[0].join}\n" + "#{transposed[1].join}\n" + "#{transposed[2].join}\n"
   end
 
+
+
 end

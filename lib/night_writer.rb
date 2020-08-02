@@ -18,7 +18,6 @@ class NightWriter
     @sliced_contents.each do |content|
       wrapped_braille << @converter.convert_to_columns(content)
     end
-    # text_to_braille = converter.convert_to_columns(@contents_string)
     # opens the given file and writes the braille stored in
     # the text_to_braille variable
     File.open(@output_file, "w") do |f|
