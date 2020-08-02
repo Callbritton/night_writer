@@ -1,9 +1,4 @@
-require "minitest/autorun"
-require "minitest/pride"
-require "./lib/converter"
-require "./lib/night_writer"
 require "./test/test_helper"
-require "mocha/minitest"
 
 class ConverterTest < Minitest::Test
 

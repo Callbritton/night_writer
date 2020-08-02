@@ -1,5 +1,3 @@
-require "minitest/autorun"
-require "minitest/pride"
 require "./test/test_helper"
 
 class DictionaryTest < Minitest::Test
