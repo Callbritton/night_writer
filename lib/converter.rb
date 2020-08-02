@@ -13,7 +13,7 @@ class Converter < Dictionary
     # transposes the rows and columns (change place with one another)
     transposed = arrays_of_braille.transpose
     # pulls each index back together and combines them with interpolation
-    "#{transposed[0].join}\n" + "#{transposed[1].join}\n" + "#{transposed[2].join}"
+    "#{transposed[0].join}\n" + "#{transposed[1].join}\n" + "#{transposed[2].join}\n"
   end
 
 end
