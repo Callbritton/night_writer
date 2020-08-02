@@ -1,5 +1,4 @@
 require "./test/test_helper"
-
 class ConverterTest < Minitest::Test
 
   def test_it_exists
