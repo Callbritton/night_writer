@@ -7,30 +7,40 @@ class NightWriter
   def initialize(input_file, output_file)
     @input_file = input_file
     @output_file = output_file
+    @sliced_contents = nil
+    @converter = Converter.new
   end
 
 
   def write_braille_to_file
-    converter = Converter.new
     # stores string converted to braille in columns to variable
-    text_to_braille = converter.convert_to_columns(@contents_string)
-    # assigns file variable to ARGV[1] OR "braille.txt"
-    file = ARGV[1]
+    wrapped_braille = ""
+    @sliced_contents.each do |content|
+      wrapped_braille << @converter.convert_to_columns(content)
+    end
+    # text_to_braille = converter.convert_to_columns(@contents_string)
     # opens the given file and writes the braille stored in
     # the text_to_braille variable
-    File.open(file, "w") do |f|
-      f.write text_to_braille
+    File.open(@output_file, "w") do |f|
+      f.write wrapped_braille
     end
   end
 
   def execute_conversion
-    # sets file variable to ARGV[0]
-    file = ARGV[0]
-    # reads the given file and stores text in contents
-    contents = File.readlines(file)
-    # removes from array, removes \n, and ensures downcased
-    @contents_string = contents.join.chomp.downcase
+    contents = input_file_contents
+    @sliced_contents = create_sliced_contents(contents)
     write_braille_to_file
+  end
+
+  def create_sliced_contents(contents, size = 40)
+    @contents_string = contents.join.chomp.downcase
+    @contents_string.chars.each_slice(size).to_a.map do |sliced|
+      sliced.join
+    end
+  end
+
+  def input_file_contents
+    File.readlines(@input_file)
   end
 end
 
@@ -39,5 +49,5 @@ if __FILE__ == $0
 input_file = ARGV[0]
 output_file = ARGV[1]
 NightWriter.new(input_file, output_file).execute_conversion
-puts "Created #{output_file} containing #{File.read(output_file).chomp.length} characters"
+puts "Created #{output_file} containing #{File.read(input_file).chomp.length} characters"
 end
