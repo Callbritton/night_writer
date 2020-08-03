@@ -24,13 +24,17 @@ class NightWriter
       f.write wrapped_braille
     end
   end
-
+  # This takes text from the input_file_contents (ARGV[0])
+  # and, with the processing complete from the helper methods,
+  # executes the conversion and writes braille to ARGV[1]
   def execute_conversion
     contents = input_file_contents
     @sliced_contents = create_sliced_contents(contents)
     write_braille_to_file
   end
-
+  # this will take the array held in contents and
+  # seperate the array into elements dictated by the
+  # size given in paramater (default 40 characters or 80 dots)
   def create_sliced_contents(contents, size = 40)
     @contents_string = contents.join.chomp.downcase
     @contents_string.chars.each_slice(size).to_a.map do |sliced|
