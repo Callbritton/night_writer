@@ -14,6 +14,10 @@ class ConverterTest < Minitest::Test
   #
   #   assert_equal expected, File.read("braille.txt")
   # end
+  def test_it_has_access_to_braille_dictionary
+    night_writer = NightWriter.new("would_be_input", "would_be_output")
+    assert_equal ["0.", "..", ".."], night_writer.letters_to_braille["a"]
+  end
 
   def test_it_can_create_sliced_contents
     night_writer = NightWriter.new("would_be_input", "would_be_output")
