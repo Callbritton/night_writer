@@ -34,5 +34,4 @@ class ConverterTest < Minitest::Test
     night_writer = NightWriter.new("message.txt", "braille.txt")
     assert_equal "Testing mocks", night_writer.input_file_contents
   end
-
 end
