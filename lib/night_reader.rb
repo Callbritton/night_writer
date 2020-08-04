@@ -32,9 +32,10 @@ class NightReader
   end
 
   def convert_into_letters(prepared_braille)
-    # number of letters divided by
+    # number of letters divided by 2
     braille_to_letters_ratio = 2
     number_of_letters = prepared_braille.first.length / braille_to_letters_ratio
+    # sets the accumulator and prepares the arrays to be split
     split_braille = []
     number_of_letters.times do
       sliced_braille(split_braille, prepared_braille)
@@ -46,6 +47,8 @@ class NightReader
     convert_braille(processed_braille)
   end
   # pulls off the first 2 characters of each line
+  # to allocate the 2 characters of braille Per element
+  # into their array
   def sliced_braille(split_braille, prepared_braille)
     prepared_braille.each do |string|
       split_braille << string[0..1]
