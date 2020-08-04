@@ -1,6 +1,6 @@
-require_relative "converter"
-require_relative "dictionary"
-class NightWriter < Dictionary
+require "./lib/dictionary"
+class NightWriter
+  include Dictionary 
   attr_reader :input_file,
               :output_file,
               :contents
@@ -44,7 +44,7 @@ class NightWriter < Dictionary
   # This takes text from the input_file_contents (ARGV[0])
   # and, with the processing complete from the helper methods,
   # executes the conversion and writes braille to ARGV[1]
-  def execute_conversion
+  def execute_conversion_to_braille
     contents = input_file_contents
     @sliced_contents = create_sliced_contents(contents)
     write_braille_to_file
@@ -68,6 +68,6 @@ end
 if __FILE__ == $0
 input_file = ARGV[0]
 output_file = ARGV[1]
-NightWriter.new(input_file, output_file).execute_conversion
+NightWriter.new(input_file, output_file).execute_conversion_to_braille
 puts "Created #{output_file} containing #{File.read(input_file).chomp.length} characters"
 end
