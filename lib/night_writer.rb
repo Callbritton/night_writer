@@ -1,6 +1,6 @@
 require "./lib/dictionary"
 class NightWriter
-  include Dictionary 
+  include Dictionary
   attr_reader :input_file,
               :output_file,
               :contents
@@ -69,5 +69,5 @@ if __FILE__ == $0
 input_file = ARGV[0]
 output_file = ARGV[1]
 NightWriter.new(input_file, output_file).execute_conversion_to_braille
-puts "Created #{output_file} containing #{File.read(input_file).chomp.length} characters"
+puts "Created #{output_file} containing #{File.read(output_file).chomp.length} characters"
 end
