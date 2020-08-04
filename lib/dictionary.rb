@@ -1,4 +1,4 @@
-class Dictionary 
+module Dictionary 
 
   def letters_to_braille
     {

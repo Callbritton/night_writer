@@ -1,10 +1,4 @@
-require "minitest/autorun"
-require "minitest/pride"
-require "./lib/converter"
-require "./lib/night_writer"
 require "./test/test_helper"
-require "mocha/minitest"
-
 class ConverterTest < Minitest::Test
 
   def test_it_exists
@@ -12,14 +6,22 @@ class ConverterTest < Minitest::Test
     assert_instance_of NightWriter, night_writer
   end
 
-  # def test_it_can_write_braille_to_file
-  #   File.expects(:readlines).with("message.txt").returns("a")
-  #   night_writer = NightWriter.new("message.txt", "braille.txt")
-  #   # night_writer.execute_conversion
-  #   expected = "0.\n..\n.."
-  #
-  #   assert_equal expected, File.read("braille.txt")
-  # end
+  def test_it_has_access_to_braille_dictionary
+    night_writer = NightWriter.new("would_be_input", "would_be_output")
+    assert_equal ["0.", "..", ".."], night_writer.letters_to_braille["a"]
+  end
+
+  def test_it_can_convert_a_row_of_braille_arrays_into_columns
+    night_writer = NightWriter.new("would_be_input", "would_be_output")
+    expected = "0.\n..\n..\n"
+    assert_equal expected, night_writer.convert_to_columns("a")
+  end
+
+  def test_it_can_convert_multiple_rows_into_columns
+    night_writer = NightWriter.new("would_be_input", "would_be_output")
+    expected = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
+    assert_equal expected, night_writer.convert_to_columns("hello world")
+  end
 
   def test_it_can_create_sliced_contents
     night_writer = NightWriter.new("would_be_input", "would_be_output")
