@@ -8,12 +8,25 @@ class NightReader
     @input_file = input_file
     @output_file = output_file
   end
+  # this is my "runner method" this method
+  # stores information from input file in contents
+  # then ensures that the info is no longer than 3 lines long
+  # and then writes it.
+  def execute_conversion_to_letters
+    contents = input_file_contents
+    output = ""
+    contents.each_slice(3) do |content|
+      output << convert_into_letters(content)
+    end
+    File.open(@output_file, "w") do |f|
+      f.write output
+    end
+  end
 
-  
   def convert_braille(processed_braille)
     collected_strings = []
-    processed_braille.each do |braille_char|
-      collected_strings << braille_to_letters[braille_char]
+    processed_braille.each do |braille|
+      collected_strings << braille_to_letters[braille]
     end
     collected_strings = collected_strings.flatten.join
   end
@@ -39,4 +52,15 @@ class NightReader
       string.slice!(0..1)
     end
   end
+
+  def input_file_contents
+    File.readlines(@input_file)
+  end
+end
+
+if __FILE__ == $0
+input_file = ARGV[0]
+output_file = ARGV[1]
+NightReader.new(input_file, output_file).execute_conversion_to_letters
+puts "Created #{output_file} containing #{File.read(input_file).chomp.length} characters"
 end

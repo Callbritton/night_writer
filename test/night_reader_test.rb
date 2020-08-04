@@ -33,4 +33,16 @@ class ConverterTest < Minitest::Test
     night_reader = NightReader.new("would_be_input", "would_be_output")
     assert_equal "hey hey", night_reader.convert_into_letters(["0.00..0..0..00.000......0.00..0..0..00.000"])
   end
+
+  def test_input_file_contents
+    File.expects(:readlines).with("message.txt").returns("Input beep boop")
+    night_reader = NightReader.new("message.txt", "braille.txt")
+    assert_equal "Input beep boop", night_reader.input_file_contents
+  end
+
+  # def test_it_can_execute_conversion_to_letters
+  #   night_reader = NightReader.new("would_be_input", "would_be_output")
+  #   night_reader.execute_conversion_to_letters
+  #
+  # end
 end
